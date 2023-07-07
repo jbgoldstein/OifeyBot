@@ -2,6 +2,8 @@ import maji, discord, asyncio, os
 import oifey, random
 from client import client
 
+token = os.environ['DISCORD_TOKEN']
+
 # dev commands
 @maji.commands.classic("sync")
 async def sync(ctx):
@@ -169,12 +171,8 @@ async def help_command(ctx):
     await embed.send(ctx)
     
 # run (or try to)
-if os.path.isfile("token.txt"):
-    def get_token():
-        with open("token.txt", "r") as f:
-            return f.read()
-            
-    client.run(get_token())
+if token:
+    client.run(token)
 
 else:
-    print("Token file not found!\nCreate a token.txt file in this directory with only the bot's token.\nDon't include anything else on it!")
+    print("Token not found!\nCreate DISCORD_TOKEN Enviornmental Variable!")

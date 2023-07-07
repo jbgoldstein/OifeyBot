@@ -1,7 +1,7 @@
 import discord, random
 from discord.ext import tasks
 
-OWNER_ID = 0
+OWNER_ID = 'wegonbealleft'
 
 random_status = [
     "Support the bot -> ko-fi.com/izumi",
